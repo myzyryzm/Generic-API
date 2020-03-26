@@ -1,4 +1,4 @@
 {
     "python.linting.enabled": true,
-    "python.pythonPath": "/usr/local/bin/python3"
+    "python.pythonPath": "mypython/bin/python3.7"
 }
