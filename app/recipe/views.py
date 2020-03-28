@@ -45,7 +45,13 @@ class RecipeViewSet(viewsets.ModelViewSet):
     
     def get_serializer_class(self):
         """return appro serializer class"""
+        # the actions that this view set can get are either list or retrieve, for retrieve we want to give the detailed view and the detail serializer will give the serialized ingredients and tags
         if self.action == 'retrieve':
             return serializers.RecipeDetailSerializer
         
         return self.serializer_class
+    
+    def perform_create(self, serializer):
+        """create a new recipe"""
+        # if you pass a serializer in and it is assigned a model, then when you pass it any values (such as telling it who the user is here), it will know what to do
+        serializer.save(user=self.request.user)
