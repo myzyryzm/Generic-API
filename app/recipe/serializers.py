@@ -41,3 +41,12 @@ class RecipeDetailSerializer(RecipeSerializer):
     # cant create a recipe b/c read_only is True
     ingredients = IngredientSerializer(many=True, read_only=True)
     tags = TagSerializer(many=True, read_only=True)
+
+class RecipeImageSerializer(serializers.ModelSerializer):
+    """serializer for uploading images to recipes"""
+    
+    class Meta:
+        model = Recipe
+        # this serializer is only for images therefore only needs the id and image fields
+        fields = ('id', 'image')
+        read_only_fields = ('id',)
