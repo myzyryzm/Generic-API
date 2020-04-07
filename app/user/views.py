@@ -18,7 +18,7 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
     authentication_classes = (authentication.TokenAuthentication,)
     permission_classes = (permissions.IsAuthenticated,)
-    # typicall with api view it would linke 2 item and u would get the objects for that; instead we gonna just retrieve the authenticated logged in user
+    # typically with api view it would link 2 item and u would get the objects for that; instead we gonna just retrieve the authenticated logged in user
     def get_object(self):
         # b/c we have the authentication classes we can just grab the user form the request
         return self.request.user
