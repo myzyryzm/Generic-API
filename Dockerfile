@@ -25,6 +25,6 @@ RUN mkdir -p /vol/web/static
 RUN adduser -D user
 # gives ownership of all vol folders and it subdirectories to user
 RUN chown -R user:user /vol/
-# user can do whatever it want
+# user can do whatever it want (i.e. write and read and maybe some other shit)
 RUN chmod -R 755 /vol/web
 USER user
