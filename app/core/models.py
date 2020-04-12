@@ -5,6 +5,13 @@ from django.conf import settings
 import uuid
 import os
 
+def song_file_path(instance, filename):
+    """generate file path for new song"""
+    # return extension of file
+    ext = filename.split('.')[-1]
+    filename = f'{uuid.uuid4()}.{ext}'
+    return os.path.join('uploads/songs/', filename)
+
 def recipe_image_file_path(instance, filename):
     """generate file path for new recipe image"""
     # return extension of file
@@ -82,6 +89,13 @@ class Recipe(models.Model):
     ingredients = models.ManyToManyField('Ingredient')
     tags = models.ManyToManyField('Tag')
     image = models.ImageField(null=True, upload_to=recipe_image_file_path)
+    
+    def __str__(self):
+        return self.title
+
+class Song(models.Model):
+    file = models.FileField(null=True,upload_to=song_file_path)
+    title = models.CharField(max_length=255)
     
     def __str__(self):
         return self.title

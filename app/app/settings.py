@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'core',
     'user',
-    'recipe'
+    'recipe',
+    'general'
 ]
 
 MIDDLEWARE = [
@@ -126,11 +127,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# this is 4 docker...FUCK DOCKER!!!!
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/media/'
+# # tells django where we want to store all the media files
+# MEDIA_ROOT = '/vol/web/media'
+# # where all the static files are store
+# STATIC_ROOT = 'vol/web/static'
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 # tells django where we want to store all the media files
-MEDIA_ROOT = '/vol/web/media'
+MEDIA_ROOT = '/Users/ryzm/Desktop/®/Web Dev/Generic-API/app/media'
 # where all the static files are store
-STATIC_ROOT = 'vol/web/static'
+STATIC_ROOT = '/Users/ryzm/Desktop/®/Web Dev/Generic-API/app/static'
 
 AUTH_USER_MODEL = 'core.User'
