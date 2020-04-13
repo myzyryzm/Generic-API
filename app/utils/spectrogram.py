@@ -19,7 +19,7 @@ def get_spectrogram_data(file_path):
     ret['timeStep'] = myconverter(time_step)
     ret['windows'] = []
     minimum = 5
-    minimum = 10 * 10**-3
+    minimum = 5 * 10**-3
     time_low = 0
     time_high = 2
     time_dex_lower = int(time_low / time_step)
