@@ -5,11 +5,12 @@ from django.conf import settings
 import uuid
 import os
 
-def song_file_path(instance, filename):
+def song_file_path(instance, filename, generate_uuid=False):
     """generate file path for new song"""
     # return extension of file
-    ext = filename.split('.')[-1]
-    filename = f'{uuid.uuid4()}.{ext}'
+    if generate_uuid:
+        ext = filename.split('.')[-1]
+        filename = f'{uuid.uuid4()}.{ext}'
     return os.path.join('uploads/songs/', filename)
 
 def recipe_image_file_path(instance, filename):
