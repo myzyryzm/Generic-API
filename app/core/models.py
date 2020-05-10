@@ -93,10 +93,3 @@ class Recipe(models.Model):
     
     def __str__(self):
         return self.title
-
-class Song(models.Model):
-    file = models.FileField(null=True,upload_to=song_file_path)
-    title = models.CharField(max_length=255)
-    
-    def __str__(self):
-        return self.title
